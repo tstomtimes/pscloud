@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => '森下 力',
             'email' => 'morishita@sunshine-inc.com',
+            'place_id' => '1',
             'auth_str' => 'admin',
             'created_at' => '2019-05-10 00:00:00',
             'updated_at' => '2019-05-10 00:00:00'
