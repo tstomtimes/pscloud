@@ -16,7 +16,9 @@ class MembersTableSeeder extends Seeder
             'first_name' => '力',
             'last_name_kana' => 'モリシタ',
             'first_name_kana' => 'ツトム',
-            'email' => 'morishita@sunshine-inc.com'
+            'email' => 'morishita@sunshine-inc.com',
+            'created_at' => '2019-05-10 00:00:00',
+            'updated_at' => '2019-05-10 00:00:00'
         ]);
     }
 }
