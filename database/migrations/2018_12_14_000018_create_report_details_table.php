@@ -15,14 +15,14 @@ class CreateReportDetailsTable extends Migration
     {
         Schema::create('report_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('report_id');
-            $table->integer('place_id');
-            $table->integer('member_id');
-            $table->date('date');
-            $table->boolean('is_working');
-            $table->integer('key_number')->nullable();;
-            $table->integer('make_floors')->nullable();;
-            $table->integer('make_total');
+            $table->integer('report_id')->nullable();
+            $table->integer('place_id')->nullable();
+            $table->integer('member_id')->nullable();
+            $table->date('date')->nullable();
+            $table->boolean('is_working')->nullable();
+            $table->integer('key_number')->nullable();
+            $table->integer('make_floors')->nullable();
+            $table->integer('make_total')->nullable();
             $table->string('tag')->nullable();
             $table->text('note')->nullable();
             $table->time('start')->nullable();;

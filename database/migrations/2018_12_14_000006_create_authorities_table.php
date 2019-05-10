@@ -15,7 +15,7 @@ class CreateAuthoritiesTable extends Migration
     {
         Schema::create('authorities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
             $table->softDeletes();

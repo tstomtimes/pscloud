@@ -15,11 +15,11 @@ class CreateTimesTable extends Migration
     {
         Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_id');
-            $table->date('date');
-            $table->time('in');
-            $table->time('out');
-            $table->time('time');
+            $table->integer('member_id')->nullable();
+            $table->date('date')->nullable();
+            $table->time('in')->nullable();
+            $table->time('out')->nullable();
+            $table->time('time')->nullable();
             $table->timestamps();
         });
     }

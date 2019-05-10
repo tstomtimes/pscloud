@@ -15,12 +15,12 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('place_id');
-            $table->integer('member_id');
-            $table->integer('unit_price');
-            $table->date('date');
-            $table->integer('ordered_rooms_quantity');
-            $table->integer('cleaned_rooms_quantity');
+            $table->integer('place_id')->nullable();
+            $table->integer('member_id')->nullable();
+            $table->integer('unit_price')->nullable();
+            $table->date('date')->nullable();
+            $table->integer('ordered_rooms_quantity')->nullable();
+            $table->integer('cleaned_rooms_quantity')->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
             $table->softDeletes();

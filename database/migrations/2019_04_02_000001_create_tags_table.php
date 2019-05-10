@@ -14,10 +14,10 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('place_id');
-            $table->string('name');
-            $table->integer('price');
-            $table->boolean('is_using');
+            $table->integer('place_id')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('price')->nullable();
+            $table->boolean('is_using')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
