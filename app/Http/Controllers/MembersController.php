@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Place;
+use Illuminate\Support\Facades\View;
 
 class MembersController extends Controller
 {
@@ -12,7 +13,7 @@ class MembersController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $members = Member::all();
@@ -22,7 +23,8 @@ class MembersController extends Controller
     public function create()
     {
         $places = Place::all();
-        return view('members.create', compact('places'));
+        return view('members.create_or_edit', compact('places'));
+        // return View::make('members.create_or_edit')->with('places', $places);
     }
 
     public function store(Request $request)
@@ -147,7 +149,7 @@ class MembersController extends Controller
             'has_dependent' => [],
             'job_title' => [],
             'note' => []
-        ]); 
+        ]);
         $member->update(request([
             'employee_no',
             'last_name',

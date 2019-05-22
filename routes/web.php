@@ -15,10 +15,7 @@ Route::get('/dashboard', 'DashboardController@index')->middleware('verified')->n
 // Route::get('/logout', 'DashboardController@logout');
 Route::get('/', function () { return view('welcome');});
 
-Route::resource('projects', 'ProjectsController')->middleware('app.auth');
 Route::resource('authorities', 'AuthoritiesController')->middleware('app.auth');
-Route::resource('statuses', 'StatusesController')->middleware('app.auth');
-Route::resource('hotels', 'HotelsController')->middleware('app.auth');
 Route::resource('places', 'PlacesController')->middleware('app.auth');
 Route::resource('members', 'MembersController')->middleware('app.auth');
 Route::resource('reports', 'ReportsController')->middleware('app.auth');
@@ -26,6 +23,7 @@ Route::resource('report_details', 'ReportDetailsController')->middleware('app.au
 Route::resource('times', 'TimesController')->middleware('app.auth');
 Route::resource('users', 'UsersController')->middleware('app.auth');
 Route::resource('tags', 'TagsController')->middleware('app.auth');
+Route::resource('employment_statuses', 'EmploymentStatusesController')->middleware('app.auth');
 
 Route::get('auth/graph', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/graph/callback','Auth\AuthController@handleProviderCallback');

@@ -45,9 +45,11 @@ class CreateMembersTable extends Migration
             $table->boolean('is_sunday')->nullable();
             $table->integer('yearly_limit')->nullable();
             $table->integer('dayly_transportation_cost')->nullable();
-            $table->string('employment_status')->nullable();
+            $table->integer('employment_status_id')->nullable();
             $table->string('bank_name')->nullable();
+            $table->string('bank_code')->nullable();
             $table->string('branch_name')->nullable();
+            $table->string('branch_code')->nullable();
             $table->string('account_type')->nullable();
             $table->integer('account_number')->nullable();
             $table->boolean('is_social_insurance')->nullable();

@@ -13,6 +13,11 @@ class Member extends Model
     	return $this->hasOne(Authority::class);
     }
 
+    public function employment_status()
+    {
+        return $this->belongsTo(EmploymentStatus::class);
+    }
+
     public function place()
     {
         return $this->belongsTo(Place::class);
