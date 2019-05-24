@@ -30,7 +30,9 @@ class AuthController extends \App\Http\Controllers\Controller
         try{
             $userSocial = Socialize::with('graph')->user();
             $user = User::where(['email' => $userSocial->getEmail()])->first();
+            debug("I'm back!");
             if(empty($user)){
+              debug("We have not such a name here! Let's make that!");
                 $newuser = new User;
                 $newuser->name = $userSocial->getName();
                 $newuser->email = $userSocial->getEmail();
@@ -41,7 +43,9 @@ class AuthController extends \App\Http\Controllers\Controller
                     route('verification.resend');
                 }
             }
+            debug("Login check!");
             Auth::login($user);
+            debug("Let's move to Dashboad"); 
             return redirect("/dashboard");
         } catch(\Exception $e) {
             return redirect("/");
