@@ -14,7 +14,8 @@
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
-        "league/oauth2-client": "^2.0"
+        "league/oauth2-client": "^2.0",
+        "socialiteproviders/microsoft-graph": "^2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

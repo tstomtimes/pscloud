@@ -44,6 +44,16 @@ class LoginController extends Controller
         return $authenticateUser->execute($request->has('code'));
     }
 
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // 認証に成功した
+            return redirect()->intended('dashboard');
+        }
+    }
+
     public function showLoginForm(){
         return view('auth.login');
     }

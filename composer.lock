@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ad742c0565d97bc8e4fcdc39d0c17ae",
+    "content-hash": "ff31ed2d2bd1182df057f0b4a1696f00",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2381,6 +2381,96 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "socialiteproviders/manager",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Manager.git",
+                "reference": "f9fc2d8b454f7b44b5f1d70d1769a76bebfea972"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/f9fc2d8b454f7b44b5f1d70d1769a76bebfea972",
+                "reference": "f9fc2d8b454f7b44b5f1d70d1769a76bebfea972",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.4|~5.7.0|~5.8.0",
+                "laravel/socialite": "~3.0|~4.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SocialiteProviders\\Manager\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Wendt",
+                    "email": "andy@awendt.com"
+                },
+                {
+                    "name": "Anton Komarev",
+                    "email": "a.komarev@cybercog.su"
+                }
+            ],
+            "description": "Easily add new or override built-in providers in Laravel Socialite.",
+            "time": "2019-04-25T09:55:31+00:00"
+        },
+        {
+            "name": "socialiteproviders/microsoft-graph",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Microsoft-Graph.git",
+                "reference": "f0406a0b9854928bfff8c7cadcfe3fc440525c65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Microsoft-Graph/zipball/f0406a0b9854928bfff8c7cadcfe3fc440525c65",
+                "reference": "f0406a0b9854928bfff8c7cadcfe3fc440525c65",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "socialiteproviders/manager": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Graph\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Edgerton",
+                    "email": "cjedgerton@gmail.com"
+                }
+            ],
+            "description": "Microsoft Graph OAuth2 Provider for Laravel Socialite",
+            "time": "2017-02-11T15:58:41+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
