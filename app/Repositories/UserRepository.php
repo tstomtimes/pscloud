@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories;
-
-class UserRepository {
-
-
-}
+// namespace App\Repositories;
+//
+// class UserRepository {
+//
+//
+// }
