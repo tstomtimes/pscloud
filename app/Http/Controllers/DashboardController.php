@@ -23,7 +23,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        dd("dash!")
         return view('dashboard');
     }
 
