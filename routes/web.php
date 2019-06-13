@@ -26,10 +26,5 @@ Route::resource('employment_statuses', 'EmploymentStatusesController')->middlewa
 
 Route::get('auth/graph', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/graph/callback','Auth\AuthController@handleProviderCallback');
-
 Route::get('logout','Auth\LoginController@logout');
-
-
-// Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

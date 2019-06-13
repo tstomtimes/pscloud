@@ -27,7 +27,7 @@ class AuthController extends \App\Http\Controllers\Controller
      */
     public function handleProviderCallback(Request $request)
     {
-        // try{
+        try{
             $userSocial = Socialize::with('graph')->user();
             $user = User::where(['email' => $userSocial->getEmail()])->first();
             // dump("I'm back!");
@@ -47,9 +47,9 @@ class AuthController extends \App\Http\Controllers\Controller
             Auth::login($user,true);
             // dd("Let's move to Dashboad");
             return redirect("/dashboard");
-        // } catch(\Exception $e) {
-        //     // dd("Oops!!");
-        //     return redirect("/");
-        // }
+        } catch(\Exception $e) {
+            // dd("Oops!!");
+            return redirect("/");
+        }
     }
 }
