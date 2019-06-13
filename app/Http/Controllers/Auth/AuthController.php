@@ -44,8 +44,8 @@ class AuthController extends \App\Http\Controllers\Controller
                 }
             }
             dump("Login check!");
-            $condition = Auth::login($user);
-            dd($condition);
+            Auth::login($user);
+            dd($user);
             dump("Let's move to Dashboad");
             return redirect("/dashboard");
         } catch(\Exception $e) {
