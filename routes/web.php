@@ -11,8 +11,7 @@
 |
 */
 Auth::routes(['verify' => true]);
-// Route::get('/dashboard', 'DashboardController@index')->middleware('verified')->name('dashboard');
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->middleware('verified')->name('dashboard');
 Route::get('/', function () { return view('welcome');});
 
 Route::resource('authorities', 'AuthoritiesController')->middleware('app.auth');
