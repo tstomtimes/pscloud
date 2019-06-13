@@ -44,10 +44,11 @@ class AuthController extends \App\Http\Controllers\Controller
                 }
             }
             dump("Login check!");
-            Auth::login($user);
+            Auth::login($user,true);
             dump("Let's move to Dashboad");
             return redirect("/dashboard");
         } catch(\Exception $e) {
+            dump("Oops!!");
             return redirect("/");
         }
     }
