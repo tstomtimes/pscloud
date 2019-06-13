@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\AuthenticateUser;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use \SocialiteProviders\Manager\ServiceProvider as Socialite;
 use Illuminate\Support\Facades\Auth;
+use Log;
 
 class LoginController extends Controller
 {
+  use AuthenticatesUsers;
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -39,10 +41,11 @@ class LoginController extends Controller
     }
 
 
-    public function login(AuthenticateUser $authenticateUser, Request $request)
-    {
-        return $authenticateUser->execute($request->has('code'));
-    }
+    // public function login(AuthenticateUser $authenticateUser, Request $request)
+    // {
+    //   dd($user);
+    //     return $authenticateUser->execute($request->has('code'));
+    // }
 
     public function authenticate(Request $request)
     {
