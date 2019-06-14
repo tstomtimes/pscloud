@@ -1,7 +1,7 @@
 @extends('layouts.app_side')
 
 @section('sidebar')
-    @include('component.sidebar_time')
+    @include('component.sidebar_master')
 @endsection
 
 @section('content')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Place;
+use App\EmploymentStatus;
 use Illuminate\Support\Facades\View;
 
 class MembersController extends Controller
@@ -23,7 +24,8 @@ class MembersController extends Controller
     public function create()
     {
         $places = Place::all();
-        return view('members.create_or_edit', compact('places'));
+        $employment_statuses = EmploymentStatus::all();
+        return view('members.create_or_edit', compact('places','employment_statuses'));
         // return View::make('members.create_or_edit')->with('places', $places);
     }
 
@@ -32,11 +34,11 @@ class MembersController extends Controller
         Member::create(
             request()->validate([
                 'employee_no' => [],
-                'last_name' => [],
-                'first_name' => [],
+                'last_name' => ['required'],
+                'first_name' => ['required'],
                 'last_name_kana' => [],
                 'first_name_kana' => [],
-                'place_id' => [],
+                'place_id' => ['required'],
                 'sex' => [],
                 'birthday' => [],
                 'hire_date' => [],
@@ -82,7 +84,6 @@ class MembersController extends Controller
                 'note' => []
             ])
         );
-
         return redirect('/members');
     }
 
@@ -94,18 +95,20 @@ class MembersController extends Controller
     public function edit(Member $member)
     {
         $places = Place::all();
-        return view('members.edit', compact('member'), compact('places'));
+        $employment_statuses = EmploymentStatus::all();
+        // return view('members.edit', compact('member'), compact('places'));
+        return view('members.create_or_edit', compact('places','employment_statuses','member'));
     }
 
     public function update(Request $request, Member $member)
     {
         request()->validate([
             'employee_no' => [],
-            'last_name' => [],
-            'first_name' => [],
+            'last_name' => ['required'],
+            'first_name' => ['required'],
             'last_name_kana' => [],
             'first_name_kana' => [],
-            'place_id' => [],
+            'place_id' => ['required'],
             'sex' => [],
             'birthday' => [],
             'hire_date' => [],
@@ -150,6 +153,7 @@ class MembersController extends Controller
             'job_title' => [],
             'note' => []
         ]);
+
         $member->update(request([
             'employee_no',
             'last_name',

@@ -41,8 +41,8 @@ $(function(){
 $(function() {
   $(".tenkey").keypad({
     layout: ['789' + $.keypad.CLOSE,
-        '456'  + $.keypad.BACK, 
-        '123' + $.keypad.CLEAR, 
+        '456'  + $.keypad.BACK,
+        '123' + $.keypad.CLEAR,
         $.keypad.SPACE + '0'],
     keypadOnly: true,
     showAnim: '',

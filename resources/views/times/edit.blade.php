@@ -1,7 +1,7 @@
 @extends('layouts.app_side')
 
 @section('sidebar')
-    @include('component.sidebar_time')
+    @include('component.sidebar_master')
 @endsection
 
 @section('content')
@@ -69,7 +69,7 @@
 				<a href="/times" class="button is-light">戻る</a>
 			</div>
 		</div>
-		@include ('errors')	
+		@include ('errors')
 	</form>
 </section>
 <section class="section">
@@ -82,7 +82,7 @@
 				<button type="submit" class="button is-danger">削除</button>
 				<a href="/times" class="button is-light">戻る</a>
 			</div>
-		</div>	
+		</div>
 	</form>
 </section>
 @endsection

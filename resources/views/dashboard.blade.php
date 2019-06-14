@@ -5,12 +5,12 @@
     <h1 class="title">アプリ一覧</h1>
     <div class="level section">
         @if(Auth::user()->auth_str != 'guest')
-    <!--         <div class="level-item has-text-centered">
-                <a href="/times"><div>
+            <div class="level-item has-text-centered">
+                <a href="/time_card"><div>
                 <p class="title has-text-link"><i class="fas fa-clock fa-2x"></i></p>
                 <p class="heading" style="margin-top: 10px">タイムカード</p>
                 </div></a>
-            </div> -->
+            </div>
             <div class="level-item has-text-centered">
                 <a href="/reports"><div>
                 <p class="title has-text-link"><i class="fas fa-file-alt fa-2x"></i></p>

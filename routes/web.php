@@ -28,3 +28,43 @@ Route::get('auth/graph', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/graph/callback','Auth\AuthController@handleProviderCallback');
 Route::get('logout','Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+// タイムカード
+    Route::get('time_card',[
+        'as' => 'time_card',
+        'uses' => 'TimesController@indexTimeCard'
+    ]);
+    Route::get('create_time_card/{member_id}',[
+        'as' => 'create_time_card',
+        'uses' => 'TimesController@createTimeCard'
+    ]);
+    Route::post('store_time_card',[
+        'as' => 'store_time_card',
+        'uses' => 'TimesController@storeTimeCard'
+    ]);
+    Route::get('create_pass/{member_id}',[
+        'as' => 'create_pass',
+        'uses' => 'TimesController@createPass'
+    ]);
+    Route::post('store_pass/{id}',[
+        'as' => 'store_pass',
+        'uses' => 'TimesController@storePass'
+    ]);
+    Route::get('change_pass/{member_id}',[
+        'as' => 'change_pass',
+        'uses' => 'TimesController@changePass'
+    ]);
+    Route::post('update_pass/{id}',[
+        'as' => 'update_pass',
+        'uses' => 'TimesController@updatePass'
+    ]);
+    Route::get('input_pass/{id}',[
+        'as' => 'input_pass',
+        'uses' => 'TimesController@inputPass'
+    ]);
+    Route::post('check_pass',[
+        'as' => 'check_pass',
+        'uses' => 'TimesController@checkPass'
+    ]);

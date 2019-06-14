@@ -15,5 +15,6 @@
     <li><a href="/authorities"><i class="fas fa-database"></i> 権限</a></li>
     <li><a href="/places"><i class="fas fa-database"></i> 勤務地</a></li>
     <li><a href="/users"><i class="fas fa-database"></i> ユーザー</a></li>
+    <li><a href="/times"><i class="fas fa-database"></i> タイムカード</a></li>
   </ul>
 </aside>

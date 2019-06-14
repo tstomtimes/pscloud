@@ -23,6 +23,18 @@
       </ul>
     </nav>
     <h1 class="title is-1">従業員の作成・更新</h1>
+    @if ($errors->any())
+      <div class="notification is-danger">
+        <button class="delete"></button>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      </div>
+    @endif
     @if(isset($member))
         {{ Form::model($member, ['route' => ['members.update', $member->id], 'method' => 'patch']) }}
     @else
@@ -93,49 +105,77 @@
         <div>
           {{ Form::label('is_monday','月',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_monday', '0') }}
-          {{ Form::checkbox('is_monday', '1', Input::old('is_monday', $member->is_monday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_monday', '1', Input::old('is_monday',$member->is_monday)) }}
+          @else
+              {{ Form::checkbox('is_monday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_tuesday','火',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_tuesday', '0') }}
-          {{ Form::checkbox('is_tuesday', '1', Input::old('is_tuesday', $member->is_tuesday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_tuesday', '1', Input::old('is_monday',$member->is_tuesday)) }}
+          @else
+              {{ Form::checkbox('is_tuesday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_wednesday','水',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_wednesday', '0') }}
-          {{ Form::checkbox('is_wednesday', '1', Input::old('is_wednesday', $member->is_wednesday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_wednesday', '1', Input::old('is_wednesday',$member->is_wednesday)) }}
+          @else
+              {{ Form::checkbox('is_wednesday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_thursday','木',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_thursday', '0') }}
-          {{ Form::checkbox('is_thursday', '1', Input::old('is_thursday', $member->is_thursday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_thursday', '1', Input::old('is_thursday',$member->is_thursday)) }}
+          @else
+              {{ Form::checkbox('is_thursday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_friday','金',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_friday', '0') }}
-          {{ Form::checkbox('is_friday', '1', Input::old('is_friday', $member->is_friday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_friday', '1', Input::old('is_friday',$member->is_friday)) }}
+          @else
+              {{ Form::checkbox('is_friday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_saturday','土',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_saturday', '0') }}
-          {{ Form::checkbox('is_saturday', '1', Input::old('is_saturday', $member->is_saturday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_saturday', '1', Input::old('is_saturday',$member->is_saturday)) }}
+          @else
+              {{ Form::checkbox('is_saturday', '1') }}
+          @endif
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           {{ Form::label('is_sunday','日',['class' => 'label form-top-space']) }}
           {{ Form::hidden('is_sunday', '0') }}
-          {{ Form::checkbox('is_sunday', '1', Input::old('is_sunday', $member->is_sunday)) }}
+          @if(isset($member))
+              {{ Form::checkbox('is_sunday', '1', Input::old('is_sunday',$member->is_sunday)) }}
+          @else
+              {{ Form::checkbox('is_sunday', '1') }}
+          @endif
         </div>
       </div>
     </div>
@@ -160,22 +200,37 @@
     <hr>
     {{ Form::label('is_social_insurance','社会保険',['class' => 'label form-top-space']) }}
     {{ Form::hidden('is_social_insurance', '0') }}
-    {{ Form::checkbox('is_social_insurance', '1', Input::old('is_social_insurance', $member->is_social_insurance)) }}
+    @if(isset($member))
+        {{ Form::checkbox('is_social_insurance', '1', Input::old('is_social_insurance', $member->is_social_insurance)) }}
+    @else
+        {{ Form::checkbox('is_social_insurance', '1') }}
+    @endif
     {{ Form::date('social_insurance_start', old('social_insurance_start'), ['class' => 'input']) }}
     {{ Form::label('social_insurance_id','社会保険番号',['class' => 'label form-top-space']) }}
     {{ Form::text('social_insurance_id', old('social_insurance_id'), ['class' => 'input']) }}
     <hr>
     {{ Form::label('is_basic_pension','基礎年金',['class' => 'label form-top-space']) }}
     {{ Form::hidden('is_basic_pension', '0') }}
-    {{ Form::checkbox('is_basic_pension', '1', Input::old('is_basic_pension', $member->is_basic_pension)) }}
+    @if(isset($member))
+        {{ Form::checkbox('is_basic_pension', '1', Input::old('is_basic_pension', $member->is_basic_pension)) }}
+    @else
+        {{ Form::checkbox('is_basic_pension', '1') }}
+    @endif
     {{ Form::date('basic_pension_start', old('basic_pension_start'), ['class' => 'input']) }}
     {{ Form::label('basic_pension_id','基礎年金番号',['class' => 'label form-top-space']) }}
     {{ Form::text('basic_pension_id', old('basic_pension_id'), ['class' => 'input']) }}
     <hr>
     {{ Form::label('is_welfare_pension','厚生年金',['class' => 'label form-top-space']) }}
     {{ Form::hidden('is_welfare_pension', '0') }}
-    {{ Form::checkbox('is_welfare_pension', '1', Input::old('is_welfare_pension', $member->is_welfare_pension)) }}
+    @if(isset($member))
+        {{ Form::checkbox('is_welfare_pension', '1', Input::old('is_welfare_pension', $member->is_welfare_pension)) }}
+    @else
+        {{ Form::checkbox('is_welfare_pension', '1') }}
+    @endif
+
     {{ Form::date('welfare_pension_start', old('welfare_pension_start'), ['class' => 'input']) }}
     {{ Form::label('welfare_pension_id','厚生年金番号',['class' => 'label form-top-space']) }}
     {{ Form::text('welfare_pension_id', old('welfare_pension_id'), ['class' => 'input']) }}
+    {{ Form::submit('作成/更新',['class' => 'button is-info']) }}
+    {{ Form::close() }}
 @endsection
