@@ -182,6 +182,7 @@ class TimesController extends Controller
 
   public function storeTimeCard(Request $request)
   {
+    dd($request);
      if($request->status == "in"){
         $time = new Time();
         $time->fill([
