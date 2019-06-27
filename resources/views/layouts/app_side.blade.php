@@ -211,5 +211,6 @@
 
 
         <p class="copy">©PIONEERSYSTEM Inc.</p>
+        <script src="/js/app.js"></script>
     </body>
 </html>

@@ -3,7 +3,7 @@
 <h1>パスコードの設定</h1>
     <p>初回の為、タイムカード打刻用 暗証番号を設定してください。<br/>
     今後タイムカードを打刻する際に使用しますので、忘れないようご注意ください。</p>
-<p>暗証番号は <span style="font-weight: bold;color: #aa321a">８桁</span> 必要です。</p>
+<p>暗証番号は <span style="font-weight: bold;color: #aa321a">４桁</span> 必要です。</p>
 <form method="post" action="{{route('store_pass',$member_id)}}">
     @if (count($errors) > 0)
         <div class="alert alert-danger">

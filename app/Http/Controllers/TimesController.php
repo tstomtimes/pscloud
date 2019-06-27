@@ -93,96 +93,95 @@ class TimesController extends Controller
      return view('times.create_time_card', compact('member','time'));
    }
 
- // public function createPass($member_id)
- // {
- //     $member = Member::where('id', $member_id)->first();
- //
- //     return view('times.create_pass', compact( 'member','member_id'));
- // }
- //
- // public function storePass(Request $request, $id)
- // {
- //     $this->validate($request, [
- //         'pass' => 'required|numeric|confirmed|digits:8',
- //     ],[
- //         'pass.required' => ':attributeが入力されていません',
- //         'pass.numeric' => ':attributeは数字のみ使用できます',
- //         'pass.confirmed' => '再入力のものと暗証番号が一致しません',
- //     ],[
- //         'pass' => '暗証番号',
- //     ]);
- //     $member = Member::findOrFail($id);
- //     $member->pass = $request->pass;
- //     $member->save();
- //     return redirect()->route('input_pass', [$id]);
- // }
+ public function createPass($member_id)
+ {
+     $member = Member::where('id', $member_id)->first();
 
- // public function changePass($member_id)
- // {
- //     $member = Member::where('id', $member_id)->first();
- //
- //     return view('times.change_pass', compact( 'member','member_id'));
- // }
+     return view('times.create_pass', compact( 'member','member_id'));
+ }
 
- // public function updatePass(Request $request, $id)
- // {
- //     $this->validate($request, [
- //         'pass_old' => 'required|exists:members,pass,id,'.$id,
- //         'pass' => 'required|numeric|confirmed|digits:8',
- //     ],[
- //         'pass_old.exists' => ':attributeが間違っています',
- //         'pass_old.required' => ':attributeが入力されていません',
- //         'pass.required' => ':attributeが入力されていません',
- //         'pass.numeric' => ':attributeは数字のみ使用できます',
- //         'pass.confirmed' => ':attributeが再入力された番号と一致しません',
- //     ],[
- //         'pass_old' => '暗証番号',
- //         'pass' => '新しい暗証番号',
- //     ]);
- //     $member = Member::findOrFail($id);
- //     $member->pass = $request->pass;
- //     $member->save();
- //     return redirect()->route('input_pass', [$id]);
- // }
+ public function storePass(Request $request, $id)
+ {
+     $this->validate($request, [
+         'pass' => 'required|numeric|confirmed|digits:4',
+     ],[
+         'pass.required' => ':attributeが入力されていません',
+         'pass.numeric' => ':attributeは数字のみ使用できます',
+         'pass.confirmed' => '再入力のものと暗証番号が一致しません',
+     ],[
+         'pass' => '暗証番号',
+     ]);
+     $member = Member::findOrFail($id);
+     $member->pass = $request->pass;
+     $member->save();
+     return redirect()->route('input_pass', [$id]);
+ }
 
- // public function inputPass($id)
- // {
- //     $member = Member::findOrFail($id);
- //     $pass = strval($member->pass);
- //     if (strcmp($pass, "0") == 0){
- //         return redirect()->route('create_pass', [$id]);
- //     }else{
- //         return view('times.input_pass', compact( 'id'));
- //     }
- // }
+ public function changePass($member_id)
+ {
+     $member = Member::where('id', $member_id)->first();
 
- // public function checkPass(Request $request)
- // {
- //     $id = $request->id;
- //     $this->validate($request, [
- //         'pass' => 'required|exists:members,pass,id,'.$id,
- //     ],[
- //         'pass.required' => ':attributeが入力されていません',
- //         'pass.exists' => ':attributeが間違っています',
- //     ],[
- //         'pass' => '暗証番号',
- //     ]);
- //
- //     $member = Member::findOrFail($request->id);
- //     $p1 = $member->pass;
- //     $p2 = $request->pass;
- //
- //     if($p1 == $p2){
- //         return redirect()->route('create_time_card', [$id]);
- //     }else{
- //         return redirect()->route('input_pass', [$id]);
- //     }
- //
- // }
+     return view('times.change_pass', compact( 'member','member_id'));
+ }
+
+ public function updatePass(Request $request, $id)
+ {
+     $this->validate($request, [
+         'pass_old' => 'required|exists:members,pass,id,'.$id,
+         'pass' => 'required|numeric|confirmed|digits:4',
+     ],[
+         'pass_old.exists' => ':attributeが間違っています',
+         'pass_old.required' => ':attributeが入力されていません',
+         'pass.required' => ':attributeが入力されていません',
+         'pass.numeric' => ':attributeは数字のみ使用できます',
+         'pass.confirmed' => ':attributeが再入力された番号と一致しません',
+     ],[
+         'pass_old' => '暗証番号',
+         'pass' => '新しい暗証番号',
+     ]);
+     $member = Member::findOrFail($id);
+     $member->pass = $request->pass;
+     $member->save();
+     return redirect()->route('input_pass', [$id]);
+ }
+
+ public function inputPass($id)
+ {
+     $member = Member::findOrFail($id);
+     $pass = $member->pass;
+     if ($pass == null || strcmp($pass, "0") == 0){
+         return redirect()->route('create_pass', [$id]);
+     }else{
+         return view('times.input_pass', compact( 'id'));
+     }
+ }
+
+ public function checkPass(Request $request)
+ {
+     $id = $request->id;
+     $this->validate($request, [
+         'pass' => 'required|exists:members,pass,id,'.$id,
+     ],[
+         'pass.required' => ':attributeが入力されていません',
+         'pass.exists' => ':attributeが間違っています',
+     ],[
+         'pass' => '暗証番号',
+     ]);
+
+     $member = Member::findOrFail($request->id);
+     $p1 = $member->pass;
+     $p2 = $request->pass;
+
+     if($p1 == $p2){
+         return redirect()->route('create_time_card', [$id]);
+     }else{
+         return redirect()->route('input_pass', [$id]);
+     }
+
+ }
 
   public function storeTimeCard(Request $request)
   {
-    dd($request);
      if($request->status == "in"){
         $time = new Time();
         $time->fill([

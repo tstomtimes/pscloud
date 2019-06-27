@@ -68,6 +68,7 @@ class CreateMembersTable extends Migration
             $table->boolean('job_title')->nullable();
             $table->text('note')->nullable();
             $table->boolean('is_working')->nullable();
+            $table->string('pass')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

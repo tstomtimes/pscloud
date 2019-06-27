@@ -20,15 +20,5 @@ class UsersTableSeeder extends Seeder
             'created_at' => '2019-05-10 00:00:00',
             'updated_at' => '2019-05-10 00:00:00'
         ]);
-        DB::table('users')->insert([
-            'id' => '2',
-            'name' => '森下 力',
-            'email' => 'tom@studiom.tokyo',
-            'password' => 'bix2106',
-            'place_id' => '1',
-            'auth_str' => 'admin',
-            'created_at' => '2019-05-10 00:00:00',
-            'updated_at' => '2019-05-10 00:00:00'
-        ]);
     }
 }
