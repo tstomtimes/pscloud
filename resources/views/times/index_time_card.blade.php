@@ -8,9 +8,18 @@
     @if($members)
         @foreach($members as $member)
             @if($member->is_working == false)
+              @if ($member->pass == null || $member->pass == "")
+                <a href="{{route('create_pass', $member->id)}}"><button class="button is-gray" style="margin:10px;height:100px;font-size: 25pt;padding-left: 50px;padding-right: 50px">{{$member->last_name}} {{$member->first_name}}</button></a>
+              @else
                 <a href="{{route('input_pass', $member->id)}}"><button class="button is-gray" style="margin:10px;height:100px;font-size: 25pt;padding-left: 50px;padding-right: 50px">{{$member->last_name}} {{$member->first_name}}</button></a>
+              @endif
+
             @else
+              @if ($member->pass == null || $member->pass == "")
+                <a href="{{route('create_pass', $member->id)}}"><button class="button is-success" style="margin:10px;height:100px;font-size: 25pt;padding-left: 50px;padding-right: 50px">{{$member->last_name}} {{$member->first_name}}</button></a>
+              @else
                 <a href="{{route('input_pass', $member->id)}}"><button class="button is-success" style="margin:10px;height:100px;font-size: 25pt;padding-left: 50px;padding-right: 50px">{{$member->last_name}} {{$member->first_name}}</button></a>
+              @endif
             @endif
         @endforeach
     @endif

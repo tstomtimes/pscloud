@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<?php 
+<?php
 $user = Auth::user();
 $tdate = $_GET['d'];
 $sdate = $_GET['ds'];
@@ -42,7 +42,7 @@ $sdate = $_GET['ds'];
                     <label class="label" for="place_id">店舗</label>
                     <div class="control">
                         <div class="select">
-                            <select name="place_id">
+                            <select name="place_id" readonly>
                                 @foreach ($places as $place)
                                     @if(old('place_id') !== null && old('place_id') ==$place->id)
                                         <option value="{{ $place->id }}" selected="selected">{{ $place->name }}</option>
@@ -64,7 +64,7 @@ $sdate = $_GET['ds'];
                 <label class="label" for="date">報告日</label>
                 @if($user->place->name == '全店舗')
                     <div class="control">
-                        <input id="date" type="date" style="font-size:40px" class="input {{ $errors->has('date') ? 'is-danger' : '' }}" name="date" value="<?php echo date("Y-m-d"); ?>">
+                        <input id="date" readonly type="date" style="font-size:40px" class="input {{ $errors->has('date') ? 'is-danger' : '' }}" name="date" value="<?php echo date("Y-m-d"); ?>">
                     </div>
                 @else
                     <div class="level">
@@ -161,6 +161,6 @@ $sdate = $_GET['ds'];
             @include ('errors')
         </form>
     </div>
-    
+
 </section>
 @endsection

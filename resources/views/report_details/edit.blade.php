@@ -29,7 +29,7 @@ $(function() {
   $(".option").keypad({
     separator: '|',
     layout: [
-    <?php 
+    <?php
     foreach ($tags as $tag){
         if ($report_detail->report->place_id == $tag->place_id && $tag->is_using == '1') {
             echo "'".$tag->name."',";
@@ -57,10 +57,10 @@ $(function() {
         {{ csrf_field() }}
         <input type="hidden" name="report_id" value="{{ $report_detail->report_id }}">
         <input type="hidden" name="place_id" value="{{ $report_detail->report->place_id }}">
-        <input type="hidden" name="place_id" value="{{ $report_detail->date }}">
+        <input type="hidden" name="date" value="{{ $report_detail->date }}">
         <?php
-            use Carbon\Carbon; 
-            $i = 1 
+            use Carbon\Carbon;
+            $i = 1
         ?>
         <div class="level is-mobile">
             <div class="level-item" style="justify-content: flex-start;width: 80px;">名前</div>
@@ -145,7 +145,7 @@ $(function() {
                                     </div>
                                 </div>
                             </div>
-                            <?php 
+                            <?php
                                 $start = Carbon::createFromTimeString($report_detail->start, 'Asia/Tokyo');
                                 $finish = Carbon::createFromTimeString($report_detail->finish, 'Asia/Tokyo');
                             ?>
@@ -178,8 +178,8 @@ $(function() {
                         <hr>
                     <?php $i++ ?>
                     @endif
-                @endforeach 
-            @endforeach 
+                @endforeach
+            @endforeach
         </div>
 
         <input type="hidden" name="member_count" value="{{ $i }}">

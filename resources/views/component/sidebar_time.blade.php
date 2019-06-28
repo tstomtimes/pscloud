@@ -9,6 +9,7 @@
     タイムカード管理
   </p>
   <ul class="menu-list">
-    <li><a href="/time_card"><i class="fas fa-database"></i> タイムカード</a></li>
+    <li><a href="/time_card"><i class="fas fa-database"></i> 打刻</a></li>
+    <li><a href="/times"><i class="fas fa-database"></i> 打刻履歴</a></li>
   </ul>
 </aside>

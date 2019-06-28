@@ -9,7 +9,7 @@
 <section class="section">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
-        <li><a href="/report_details">一覧</a></li>
+        <li><a href="/reports/{{ $report_detail->report_id }}">一覧</a></li>
         <li class="is-active"><a href="#" aria-current="page">詳細</a></li>
       </ul>
     </nav>
@@ -71,7 +71,7 @@
 	    </tr>
 	  </tbody>
 	</table>
-	<a href="/report_details/{{ $report_detail->report_id }}/edit"><button type="button" class="button is-link">編集</button></a>
-	<a href="/report_details"><button type="button" class="button is-light">戻る</button></a>
+	{{-- <a href="/report_details/{{ $report_detail->report_id }}/edit"><button type="button" class="button is-link">編集</button></a> --}}
+	<a href="/reports/{{ $report_detail->report_id }}"><button type="button" class="button is-light">戻る</button></a>
 </section>
 @endsection

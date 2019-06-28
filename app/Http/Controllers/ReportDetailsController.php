@@ -14,7 +14,7 @@ class ReportDetailsController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $report_details = ReportDetail::all();
@@ -52,11 +52,11 @@ class ReportDetailsController extends Controller
                 $report_detail->start = '00:00';
                 $report_detail->finish = '00:00';
             }
-            
+
             $report_detail->tag = $request->input('tag'.$i);
             $report_detail->save();
         }
-        return redirect('/report_details');
+        return redirect('/reports/'.$request->input('report_id'));
     }
 
     public function show(ReportDetail $report_detail)
@@ -88,7 +88,7 @@ class ReportDetailsController extends Controller
             'start' => ['required'],
             'finish' => ['required'],
             'note' => []
-        ]); 
+        ]);
         $report_detail->update(request([
             'report_id',
             'place_id',

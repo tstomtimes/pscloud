@@ -18,6 +18,8 @@ class CreateTimesTable extends Migration
             $table->integer('member_id')->nullable();
             $table->datetime('in')->nullable();
             $table->datetime('out')->nullable();
+            $table->datetime('rest_in')->nullable();
+            $table->datetime('rest_out')->nullable();
             $table->integer('time')->nullable();
             $table->timestamps();
         });

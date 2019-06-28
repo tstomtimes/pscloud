@@ -22,19 +22,51 @@
 </section>
 <section class="section">
 	@if($report_details)
-		<a href="/report_details/create?id={{ $report->id }}"><button type="button" class="button is-link">詳細情報の更新</button></a>
-		<table>
-		@foreach ($report_details as $report_detail)			
-			<tr>
-				<td>{{$report_detail->member->last_name}}</td>
-			</tr>
-		@endforeach
-		</table>
+		<a href="/report_details/{{ $report->id }}/edit"><button type="button" class="button is-link">詳細情報の編集</button></a>
+    <table class="table is-striped is-hoverable">
+  	  <thead>
+  	    <tr>
+  	      <th>詳細ID</th>
+  	      <th>名前</th>
+  	      <th>勤務状況</th>
+  	      <th>報告日</th>
+  	      <th>メイク数</th>
+  	      <th>特記項目</th>
+  	      <th>出社時間</th>
+  	      <th>退社時間</th>
+  	    </tr>
+  	  </thead>
+  	  <tbody>
+        <?php $i = 0; ?>
+  	  	@foreach($report_details as $report_detail)
+  			<tr>
+  				<td>{{ $report_detail->id }}</td>
+  		      <td><b><a href="/report_details/{{ $report_detail->id }}">{{ $report_detail->member->last_name }} {{ $report_detail->member->first_name }}</a></b></td>
+  		      <td>
+  		      	@if($report_detail->is_working == 1)
+  		      	<div class="button is-success">勤務</div>
+  		      	@else
+  		      	<div class="button">休み</div>
+  		      	@endif
+  		      </td>
+  		      <td>{{ $report_detail->date }}</td>
+  		      <td>{{ $report_detail->make_total }}</td>
+            <?php $i = $i + $report_detail->make_total ?>
+  		      <td>{{ $report_detail->tag }}</td>
+  		   	  <td>{{ $report_detail->start }}</td>
+  		   	  <td>{{ $report_detail->finish }}</td>
+  		    </tr>
+  		@endforeach
+  	  </tbody>
+  	</table>
+    <ul style="font-size: 30px;margin-top: 20px;">
+  		<li>実清掃数合計： {{ $i }} 室</li>
+  	</ul>
 	@else
 		<p class="has-text-danger">まだ報告が終わっていません！</p>
 		<a href="/report_details/create?id={{ $report->id }}"><button type="button" class="button is-link">詳細作成</button></a>
 	@endif
-	
+
 </section>
 <section class="section">
 	<a href="/reports"><button type="button" class="button is-light">戻る</button></a>

@@ -6,13 +6,10 @@
   <?php
     use Carbon\Carbon;
    ?>
-     @if($time <> null && $time->out == null)
-         <h1 style="text-align: center;margin-bottom: 30px;">{{$member->last_name}} {{$member->first_name}}さん、お疲れ様でした。</h1>
-     @else
-         <h1 style="text-align: center;margin-bottom: 30px;">{{$member->last_name}} {{$member->first_name}}さん、こんにちは。</h1>
-     @endif
+  <h1 style="text-align: center;margin-bottom: 30px;">{{$member->last_name}} {{$member->first_name}}さん、お疲れ様です。</h1>
 
-    {{-- <div class="camera">
+
+    <div class="camera">
       <video id="video">Video stream not available.</video>
       <button id="startbutton">Take photo</button>
     </div>
@@ -20,7 +17,7 @@
     </canvas>
     <div class="output">
       <img id="photo" alt="The screen capture will appear in this box.">
-    </div> --}}
+    </div>
 
     <h2 id="RealtimeClockArea2" style="text-align: center;margin-bottom: 50px;color:#888888;">　</h2>
     <form method="post" action="{{route('store_time_card')}}">
@@ -37,7 +34,7 @@
           <input type="hidden" name="face" id="face" value="">
         <a href="{{route('time_card')}}" style="text-decoration: none"><button style="width:20%;height:100px;font-size: 20pt;margin-top: 50px" class="btn btn-default center-block">キャンセル</button></a>
     </form>
-    {{-- <script type="text/javascript">
+    <script type="text/javascript">
         (function() {
       // The width and height of the captured photo. We will set the
       // width to the value defined here, but the height will be
@@ -151,5 +148,5 @@
 
       form.submit(); //送信
     }
-    </script> --}}
+    </script>
 @stop
