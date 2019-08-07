@@ -9,7 +9,7 @@
   <h1 style="text-align: center;margin-bottom: 30px;">{{$member->last_name}} {{$member->first_name}}さん、お疲れ様です。</h1>
 
 
-    <div class="camera">
+    {{-- <div class="camera">
       <video id="video">Video stream not available.</video>
       <button id="startbutton">Take photo</button>
     </div>
@@ -17,7 +17,7 @@
     </canvas>
     <div class="output">
       <img id="photo" alt="The screen capture will appear in this box.">
-    </div>
+    </div> --}}
 
     <h2 id="RealtimeClockArea2" style="text-align: center;margin-bottom: 50px;color:#888888;">　</h2>
     <form method="post" action="{{route('store_time_card')}}">
@@ -25,16 +25,23 @@
         <input type="hidden" name="time" value="<?php echo Carbon::now() ?>">
         {{csrf_field()}}
           @if($time <> null && $time->out == null)
-              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="btn btn-success center-block">終了</button>
+            <button disabled type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">出勤</button>
+            <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">休憩</button>
+            <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">復帰</button>
+              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">退勤</button>
               <input type="hidden" name="status" value="out">
           @else
-              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="btn btn-primary center-block">開始</button>
+              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">出勤</button>
+              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">休憩</button>
+              <button type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">復帰</button>
+              <button disabled type="submit" style="width:50%;height:200px;font-size: 50pt" class="button">退勤</button>
               <input type="hidden" name="status" value="in">
           @endif
           <input type="hidden" name="face" id="face" value="">
-        <a href="{{route('time_card')}}" style="text-decoration: none"><button style="width:20%;height:100px;font-size: 20pt;margin-top: 50px" class="btn btn-default center-block">キャンセル</button></a>
+
     </form>
-    <script type="text/javascript">
+    <a href="{{route('time_card')}}" style="text-decoration: none"><button style="width:20%;height:100px;font-size: 20pt;margin-top: 50px" class="btn btn-default center-block">キャンセル</button></a>
+    {{-- <script type="text/javascript">
         (function() {
       // The width and height of the captured photo. We will set the
       // width to the value defined here, but the height will be
@@ -148,5 +155,5 @@
 
       form.submit(); //送信
     }
-    </script>
+    </script> --}}
 @stop
